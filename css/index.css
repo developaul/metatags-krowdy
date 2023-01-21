@@ -1,0 +1,42 @@
+:root {
+  --primary: #2a81fb;
+  --secondary: #a3b3ca;
+  --secondary2: #dadde1;
+  --secondary3: #f2f3f5;
+  --secondary4: #606770;
+  --secondary5: #4b4f56;
+  --light: #ebf1fa;
+  --grey: #c7d3d9;
+  --darkGrey: #545454;
+  --black: #18283e;
+  --white: #ffffff;
+  --green: #006621;
+  --fontSizeBody1: 12px;
+  --fontSizeBody2: 14px;
+  --fontSizeBody3: 16px;
+  --fontSizeBody4: 18px;
+  --letterSpacing: 1.6px;
+  --secondaryFontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.headerLogo p {
+  margin-left: 16px;
+}
+
+.header > p {
+  margin-right: 16px;
+}
