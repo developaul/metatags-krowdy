@@ -25,12 +25,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid var(--grey);
+  height: 92px;
 }
 
 .headerLogo {
   display: flex;
   align-items: center;
   margin-left: 16px;
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
 }
 
 .headerLogo p {
@@ -39,4 +44,17 @@
 
 .header > p {
   margin-right: 16px;
+}
+
+.headerInput {
+  background-color: var(--light);
+  color: var(--black);
+  font-weight: bold;
+  padding: 0 24px;
+  height: 48px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  width: 332px;
+  box-shadow: 0 2px 120px rgb(0 0 0 / 10%);
 }
