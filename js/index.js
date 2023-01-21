@@ -1,5 +1,7 @@
-const listItemGoogle = document.querySelector("#Google");
-console.log("🚀 ~ listItemGoogle", listItemGoogle);
+const listItems = document.querySelectorAll(".listItem"),
+  channelPreviews = Array.from(document.querySelectorAll(".channelPreview")),
+  titleInput = document.querySelector("#titleInput"),
+  cardTitles = [...document.querySelectorAll(".cardTitle")];
 
 const disableActiveElement = (element) => {
   element.classList.remove("listItemActive");
@@ -13,17 +15,50 @@ const isElementActive = (element) => {
   return element.classList.contains("listItemActive");
 };
 
-const switchListItemStatus = () => {
-  if (isElementActive(listItemGoogle)) {
-    // Activo
-    disableActiveElement(listItemGoogle);
-    return;
-  }
-
-  enableActiveElement(listItemGoogle);
+const switchListItemStatus = (listItem) => {
+  isElementActive(listItem)
+    ? disableActiveElement(listItem)
+    : enableActiveElement(listItem);
 };
 
-listItemGoogle.addEventListener("click", () => {
-  // 1. Switch List Item status
-  switchListItemStatus();
+const enableChannelPreview = (element) => {
+  element.classList.add("channelPreviewActive");
+};
+
+const disableChannelPreview = (element) => {
+  element.classList.remove("channelPreviewActive");
+};
+
+const updatePreview = (listItem) => {
+  const channelPreview = channelPreviews.find(({ id }) => {
+    return id === listItem.id;
+  });
+
+  isElementActive(listItem)
+    ? enableChannelPreview(channelPreview)
+    : disableChannelPreview(channelPreview);
+};
+
+const updateCardTitles = (value) => {
+  cardTitles.forEach((cardTitle) => {
+    cardTitle.textContent = value;
+  });
+};
+
+listItems.forEach((listItem) => {
+  listItem.addEventListener("click", () => {
+    // Switch List Item Status
+    switchListItemStatus(listItem);
+
+    // Update preview
+    updatePreview(listItem);
+  });
+});
+
+titleInput.addEventListener("input", (event) => {
+  const {
+    target: { value },
+  } = event;
+
+  updateCardTitles(value);
 });
